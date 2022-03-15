@@ -46,15 +46,12 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         method = self.context["request"].method
         queryset = Advertisement.objects.filter(creator=user, status='OPEN').count()
 
-        # print(method)
-        # print(data)
-
         if method == 'POST':
             if queryset > 10:
                 raise ValidationError('Ошибка. У пользователя должно быть не более 10 открытых объявлений')
 
         if method == 'PATCH':
-            if queryset > 10 and data['status'] == 'OPEN':
+            if data['status'] == 'OPEN' and queryset > 10:
                 raise ValidationError('Ошибка. У пользователя должно быть не более 10 открытых объявлений')
 
         return data
