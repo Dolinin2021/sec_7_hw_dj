@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from advertisements.filters import AdvertisementFilter
@@ -22,9 +22,9 @@ class AdvertisementViewSet(ModelViewSet):
     def get_permissions(self):
         """Получение прав для действий."""
         if self.action in ["create"]:
-            permissions = [IsAuthenticated]
+            permissions = [IsAuthenticated, IsAdminUser]
         elif self.action in ["update", "partial_update", "destroy"]:
-            permissions = [IsOwnerOrReadOnly]
+            permissions = [IsOwnerOrReadOnly, IsAdminUser]
         else:
             permissions = [AllowAny]
         return [permission() for permission in permissions]
