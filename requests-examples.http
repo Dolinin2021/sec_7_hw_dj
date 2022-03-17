@@ -21,7 +21,7 @@ Authorization: Token 695513abb2705b7e2b87aa04e096d09dab0ad6f0
 ###
 
 # попытка поменять объявление
-PATCH {{baseUrl}}/advertisements/32/
+PATCH {{baseUrl}}/advertisements/40/
 Content-Type: application/json
 Authorization: Token b95c7734b16fbe08d7415908a0cd09ddd14904c0
 
@@ -46,3 +46,10 @@ Content-Type: application/json
 # фильтрация по статусу
 GET {{baseUrl}}/advertisements/?status=CLOSED
 Content-Type: application/json
+
+###
+
+# удаление записи
+DELETE {{baseUrl}}/advertisements/32/
+Content-Type: application/json
+Authorization: Token 695513abb2705b7e2b87aa04e096d09dab0ad6f0
