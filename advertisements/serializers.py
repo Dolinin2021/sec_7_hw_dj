@@ -50,8 +50,8 @@ class AdvertisementSerializer(serializers.ModelSerializer):
             if queryset > 10:
                 raise ValidationError('Ошибка. У пользователя должно быть не более 10 открытых объявлений')
 
-        if method == 'PATCH':
-            if data['status'] == 'OPEN' and queryset > 10:
+        if method == 'PATCH' or method == 'PUT':
+            if data.get(['status']) == 'OPEN' and queryset > 10:
                 raise ValidationError('Ошибка. У пользователя должно быть не более 10 открытых объявлений')
 
         return data

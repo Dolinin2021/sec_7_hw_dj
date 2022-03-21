@@ -11,7 +11,7 @@ Content-Type: application/json
 # создание объявления
 POST {{baseUrl}}/advertisements/
 Content-Type: application/json
-Authorization: Token 695513abb2705b7e2b87aa04e096d09dab0ad6f0
+Authorization: Token b95c7734b16fbe08d7415908a0cd09ddd14904c0
 
 {
   "title": "Шкаф Russia",
@@ -21,9 +21,9 @@ Authorization: Token 695513abb2705b7e2b87aa04e096d09dab0ad6f0
 ###
 
 # попытка поменять объявление
-PATCH {{baseUrl}}/advertisements/48/
+PATCH {{baseUrl}}/advertisements/50/
 Content-Type: application/json
-Authorization: Token b95c7734b16fbe08d7415908a0cd09ddd14904c0
+Authorization: Token ef356433f1788788b43584ee4e812e6dce069b51
 
 {
   "status": "CLOSED"
@@ -32,7 +32,7 @@ Authorization: Token b95c7734b16fbe08d7415908a0cd09ddd14904c0
 ###
 
 # фильтрация по создателю
-GET {{baseUrl}}/advertisements/?creator=2
+GET {{baseUrl}}/advertisements/?creator=1
 Content-Type: application/json
 
 ###
@@ -44,12 +44,12 @@ Content-Type: application/json
 ###
 
 # фильтрация по статусу
-GET {{baseUrl}}/advertisements/?status=CLOSED
+GET {{baseUrl}}/advertisements/?status=OPEN
 Content-Type: application/json
 
 ###
 
 # удаление записи
-DELETE {{baseUrl}}/advertisements/48/
+DELETE {{baseUrl}}/advertisements/49/
 Content-Type: application/json
 Authorization: Token b95c7734b16fbe08d7415908a0cd09ddd14904c0
